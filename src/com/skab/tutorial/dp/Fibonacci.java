@@ -5,32 +5,35 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Fibonacci {
+
+    private static final BigDecimal ONE = BigDecimal.ONE;
+    private static final BigDecimal TWO = new BigDecimal(2);
+
     public static void main(String[] args) {
-        System.out.println("Hello Dynamic Programming");
 
         // memoization
         // key: arg of n
         // value: return value
 
-        Map<BigDecimal, BigDecimal> map = new HashMap<>();
+        Map<BigDecimal, BigDecimal> memo = new HashMap<>();
 
-        System.out.println(fib(new BigDecimal(6), map)); // 1 1 2 3 5 8
-        System.out.println(fib(new BigDecimal(7), map)); // 1 1 2 3 5 8 13
-        System.out.println(fib(new BigDecimal(8), map)); // 1 1 2 3 5 8 13 21
-        System.out.println(fib(new BigDecimal(50), map));// 12586269025
+        // 1 1 2 3 5 8 13 21 ...
+        System.out.println(fib(new BigDecimal(6), memo)); // 8
+        System.out.println(fib(new BigDecimal(7), memo)); // 13
+        System.out.println(fib(new BigDecimal(8), memo)); // 21
+        System.out.println(fib(new BigDecimal(50), memo));// 12586269025
     }
 
-    public static BigDecimal fib(BigDecimal n, Map<BigDecimal, BigDecimal> map) {
-        if (map.containsKey(n)) {
-            return map.get(n);
-        }
-        if (n.compareTo(new BigDecimal(2)) <= 0) return new BigDecimal(1);
-        BigDecimal i = fib(n.subtract(BigDecimal.ONE), map).add(fib(n.subtract(new BigDecimal(2)), map));
-        map.put(n, fib(n.subtract(BigDecimal.ONE), map).add(fib(n.subtract(new BigDecimal(2)), map)));
-        return map.get(n);
+    public static BigDecimal fib(BigDecimal n, Map<BigDecimal, BigDecimal> memo) {
+        if (memo.containsKey(n)) return memo.get(n);
+
+        if (n.compareTo(TWO) <= 0) return ONE;
+        else memo.put(n, fib(n.subtract(ONE), memo).add(fib(n.subtract(TWO), memo)));
+
+        return memo.get(n);
     }
 
-//   classic fibonacci
+//  classic fibonacci
 //    public static int fib(int n) {
 //        if (n <= 2) return 1;
 //        return fib(n - 1) + fib(n - 2);
