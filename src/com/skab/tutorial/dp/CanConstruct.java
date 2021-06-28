@@ -5,7 +5,8 @@ import java.util.*;
 public class CanConstruct {
     public static void main(String[] args) {
 
-        System.out.println(canConstruct("abcdef", Arrays.asList("ab", "abc", "cd", "def", "abcd"), null)); // true
+        System.out.println(canConstruct("abcdef",
+                Arrays.asList("ab", "abc", "cd", "def", "abcd"), null)); // true
         System.out.println(canConstruct("skateboard",
                 Arrays.asList("bo", "rd", "ate", "t", "ska", "sk", "boar"), null)); // false
         System.out.println(canConstruct("enterapotentpot",
