@@ -27,7 +27,7 @@ public class BestSum {
                         if (table.get(i + num) == null || (table.get(i + num).size() > combination.size())) {
                             table.set(i + num, combination);
                         }
-                    } catch (Exception e) {
+                    } catch (IndexOutOfBoundsException e) {
                     }
                 }
             }
