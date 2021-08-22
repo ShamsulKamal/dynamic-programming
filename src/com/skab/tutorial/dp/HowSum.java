@@ -8,7 +8,7 @@ public class HowSum {
         System.out.println(howSum(7, Arrays.asList(2, 3), null)); // [3, 2, 2]
         System.out.println(howSum(7, Arrays.asList(5, 3, 4, 7), null)); // [4, 3]
         System.out.println(howSum(7, Arrays.asList(2, 4), null)); // null
-        System.out.println(howSum(8, Arrays.asList(2, 3, 5), null));  // [2, 2, 2]
+        System.out.println(howSum(8, Arrays.asList(2, 3, 5), null));  // [2, 2, 2, 2]
         System.out.println(howSum(300, Arrays.asList(7, 14), null));  // null
 
     }
